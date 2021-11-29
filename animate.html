@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(235, 208, 235);
+            position: absolute;
+            left: 0px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>btn1</button>
+    <button>btn2</button>
+</body>
+
+<script>
+    // 获取div 和 btn按钮
+    var div = document.querySelector('div');
+    var btn = document.querySelectorAll('button');
+
+    //封装动画函数 形参为目标元素 目的距离 回调样式函数
+    function animate(obj, target, callback) {
+        //定时器节流阀
+        clearInterval(obj.timer);
+
+        //给传入的目标元素设置定时器
+        obj.timer = setInterval(function () {
+
+            //设置快慢-线性动画步长      步长公式： 步长=（目标距离-目标元素现在的位置）/10
+            var step = (target - obj.offsetLeft) / 10;
+
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            //设置停止条件为 obj.offsetLeft = target
+            if (obj.offsetLeft == target) {
+                clearInterval(obj.timer);
+
+                //如果在最后的位置有回调样式的函数 则执行
+                if(callback){
+                    callback();
+                }
+            }
+
+            obj.style.left = obj.offsetLeft + step +'px';
+        }, 30)
+    }
+
+
+
+    btn[0].addEventListener('click', function () {
+        animate(div, 800);
+    })
+
+    btn[1].addEventListener('click', function () {
+        animate(div, 500);
+    })
+
+
+
+</script>
+
+</html>

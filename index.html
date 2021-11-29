@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            margin: 20px auto;
+            width: 981px;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+        }
+
+        #showPic {
+            width: 6000px;
+            height: 500px;
+            position: absolute;
+        }
+
+        #circlebtn {
+            position: absolute;
+            right: 50%;
+            bottom: 10px;
+            transform: translateX(50%);
+        }
+        #showPic img{
+            width: 981px;
+        }
+        #circlebtn li {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(145, 145, 141);
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        #circlebtn .current {
+            background-color: rgb(179, 162, 12);
+        }
+
+        div>img {
+            display: none;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            z-index: 2;
+            opacity: 0.5;
+        }
+
+        #btn_l {
+            top: 200px;
+        }
+
+        #btn_r {
+            top: 200px;
+            right: 0px;
+        }
+    </style>
+    <script src="./js/animate.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
+    <script src="./js/carousel.js"></script>
+</head>
+
+<body>
+    <div>
+        <ul id="showPic">
+            <li><img src="./img/animate1.jpg" alt=""></li>
+            <li><img src="./img/animate2.jpg" alt=""></li>
+            <li><img src="./img/animate3.jpg" alt=""></li>
+            <li><img src="./img/animate4.jpg" alt=""></li>
+            <li><img src="./img/animate5.jpg" alt=""></li>
+        </ul>
+        <ul id="circlebtn">
+        </ul>
+        <img src="./img/按钮_箭头向左_o.png" alt="" id="btn_l">
+        <img src="./img/按钮-箭头向右_o.png" alt="" id="btn_r">
+        <!-- <button id="btn_l"></button>
+        <button id="btn_r"></button> -->
+    </div>
+</body>
+
+</html>
